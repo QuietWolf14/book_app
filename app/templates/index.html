@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Hello, {{ current_user.username }}!</h1>
+    <div>
+        <a href="{{ url_for('browse_books') }}">Browse Books</a>
+        <a href="{{ url_for('create_list') }}">Create List</a>
+
+        {% if current_user.username == "kristen" %}
+        <a href="{{ url_for('add_book') }}">Add Book</a>
+        {% endif %}
+    </div>
+    
+{% endblock %}}

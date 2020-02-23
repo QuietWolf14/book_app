@@ -1,0 +1,23 @@
+{%extends "base.html"%}
+
+{% block content %}
+<h1>Create List</h1>
+
+<h2>My Lists:</h2>
+{% for list in lists%}
+<p>{{ list.name }}</p>
+{% endfor %}
+<hr>
+<br>
+<form action="" method="POST">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.name.label}}
+        {{ form.name(size=200) }}
+        {% for error in form.name.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>{{ form.submit() }}</p>
+</form>
+{% endblock %}
